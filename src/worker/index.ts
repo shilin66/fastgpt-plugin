@@ -173,7 +173,9 @@ export async function dispatchWithNewWorker(data: {
   const worker = new Worker(workerPath, {
     env: {
       NODE_ENV: process.env.NODE_ENV,
-      LOG_LEVEL: process.env.LOG_LEVEL
+      LOG_LEVEL: process.env.LOG_LEVEL,
+      OSS3_URL: process.env.OSS3_URL,
+      OSS2_URL: process.env.OSS2_URL
     },
     ...(isBun
       ? {}

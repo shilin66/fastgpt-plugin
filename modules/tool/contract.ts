@@ -5,6 +5,34 @@ import { SystemVarSchema } from './type/tool';
 
 export const toolContract = c.router(
   {
+    getCache: {
+      path: '/getCache',
+      method: 'GET',
+      description: 'Get cache',
+      query: z.object({
+        cacheKey: z.string()
+      }),
+      responses: {
+        200: z.object({
+          value: z.any()
+        })
+      }
+    },
+    setCache: {
+      path: '/setCache',
+      method: 'POST',
+      description: 'Set cache',
+      body: z.object({
+        cacheKey: z.string(),
+        cacheValue: z.any(),
+        ttl: z.number()
+      }),
+      responses: {
+        200: z.object({
+          value: z.any()
+        })
+      }
+    },
     list: {
       path: '/list',
       method: 'GET',

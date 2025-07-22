@@ -28,7 +28,7 @@ export default defineTool({
           {
             key: 'apiKey',
             label: 'Firecrawl API Key',
-            required: true,
+            required: false,
             inputType: 'secret'
           }
         ]),

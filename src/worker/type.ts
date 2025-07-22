@@ -6,6 +6,7 @@ import { ToolCallbackReturnSchema } from '@tool/type/tool';
 
 declare global {
   var uploadFileResponseFn: (data: { data?: FileMetadata; error?: string }) => void | undefined;
+  var localCache: Map<string, { data: any; expires: number }>;
 }
 
 /**
