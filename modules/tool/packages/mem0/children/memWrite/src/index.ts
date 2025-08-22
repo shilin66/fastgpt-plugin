@@ -13,7 +13,7 @@ export const InputType = z.object({
   apiKey: z.string().optional(),
   apiUrl: z.string().optional(),
   infer: z.boolean().optional().default(true),
-  customFactExtractionPrompt: z.string().optional(),
+  customInstructions: z.string().optional(),
   asyncMode: z.boolean().optional().default(false)
 });
 
@@ -24,7 +24,7 @@ export const OutputType = z.object({
 });
 
 export async function tool(props: z.infer<typeof InputType>): Promise<z.infer<typeof OutputType>> {
-  const { message, userQuestion, aiReply, userId, appId, chatId, metadata, apiKey, apiUrl, infer, customFactExtractionPrompt, asyncMode } = props;
+  const { message, userQuestion, aiReply, userId, appId, chatId, metadata, apiKey, apiUrl, infer, customInstructions, asyncMode } = props;
 
   try {
     // Parse metadata if provided
@@ -130,8 +130,8 @@ export async function tool(props: z.infer<typeof InputType>): Promise<z.infer<ty
     if (infer !== undefined) {
       payload.infer = infer;
     }
-    if (customFactExtractionPrompt) {
-      payload.custom_fact_extraction_prompt = customFactExtractionPrompt;
+    if (customInstructions) {
+      payload.custom_instructions = customInstructions;
     }
     if (asyncMode !== undefined) {
       payload.async_mode = asyncMode;
