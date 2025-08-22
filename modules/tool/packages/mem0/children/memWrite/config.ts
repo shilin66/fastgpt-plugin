@@ -84,7 +84,7 @@ export default defineTool({
           defaultValue: true
         },
         {
-          key: 'customFactExtractionPrompt',
+          key: 'customInstructions',
           label: '自定义记忆提取提示词',
           description: '自定义记忆提取规则。默认提取个人偏好、重要信息、计划意图、健康职业等个人相关内容。如需提取其他类型信息（如业务数据、技术偏好等），可自定义提示词，需返回JSON格式：`{"facts": ["提取的事实1", "提取的事实2"]}`',
           required: false,
